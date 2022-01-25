@@ -32,6 +32,9 @@ export const Input = styled.input`
     height: 30px;
     width: 150px;
     margin-bottom: 15px;
+    &::-webkit-input-placeholder {
+        color: rgb(207, 201, 201);
+    }
 `
 
 export const Button = styled.button`

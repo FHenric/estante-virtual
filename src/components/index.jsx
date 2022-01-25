@@ -1,30 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import * as S from './styles'
 
 function Estante() {
+
+    const [books, setBooks] = useState([])
+    const [name, setName] = useState('')
+    const [year, setYear] = useState('')
+    const [author, setAuthor] = useState('')
+
+    
+
+    const submitBook = (e) => {
+        e.preventDefault()
+        
+        const book = {
+            name,
+            author,
+            year
+        }
+            //proximo passo é implementar uma forma de não cadastrar o mesmo livro mais de uma vez
+        if(book.name === '' ){
+            window.alert('Não podemos registrar um livro sem nome!')
+        } else if( book.author === ''){
+            window.alert('Não podemos registrar um livro sem Autor!')
+        } else if (book.year === '') {
+            window.alert('Não podemos registrar um livro sem a seu ano de lançamento!')
+        } else {
+           setBooks([...books, book]) 
+        }
+    }
+
+    const eraser = (e) => {
+        const newList = books.filter((el) => el.name !== name);
+        setBooks(newList)
+    }
+
+    
+
   return (
 
     <S.Box>
         <S.Title>Estante Virtual</S.Title>
 
-        <S.Form>
+        <S.Form onSubmit={submitBook}>
             <S.Label>Nome do livro</S.Label>
-            <S.Input type='text' name='nome' placeholder='Liber Null'/>
+            <S.Input type='text' value={name} name='name' placeholder='Liber Null' onChange={e => setName(e.target.value)}/>
             <S.Label>Autor(a)</S.Label>
-            <S.Input type='text' name='autor' placeholder='Peter J. Carroll'/>
+            <S.Input type='text' value={author} name='autor' placeholder='Peter J. Carroll' onChange={e => setAuthor(e.target.value)}/>
             <S.Label>Ano de lançamento</S.Label>
-            <S.Input type='number' name='ano' placeholder='1978'/>
-            <S.Button color={'blue'}>Adicionar</S.Button>
+            <S.Input type='number' value={year} name='ano' placeholder='1978' onChange={e => setYear(e.target.value)}/>
+            <S.Button color={'blue'} type='Adicionar' value='submit'/>
         </S.Form>
 
         <S.ListBox>
-            <S.BookContainer>
-                <S.BookText>Liber Null</S.BookText>
-                <S.BookText>Peter J. Carroll</S.BookText>
-                <S.BookText>1978</S.BookText>
-                <S.Button color={'red'} botton='15px'>Excluir</S.Button>
-            </S.BookContainer>
+
+            {books.map((el) => (
+                <S.BookContainer>
+                    <S.BookText>{el.name}</S.BookText>
+                    <S.BookText>{el.author}</S.BookText>
+                    <S.BookText>{el.year}</S.BookText>
+                    <S.Button color={'red'} botton='15px' onClick={() => eraser(name)}>Excluir</S.Button>
+                </S.BookContainer>
+            ))}
             
         </S.ListBox>
         
