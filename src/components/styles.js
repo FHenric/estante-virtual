@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
+    
     display:flex;
     justify-content: center;
     align-items:center;
@@ -9,7 +10,7 @@ export const Box = styled.div`
 
 export const Title = styled.h1`
     font-size: 35px;
-    color: purple;
+    color: #fff;
 `
 
 export const Form = styled.form`
@@ -20,7 +21,8 @@ export const Form = styled.form`
     height: 350px;
     width: 400px;
     margin-bottom:40px ;
-    border: 1px solid red;
+    background-color: rgb(116, 208, 236);
+    border-radius: 20px;
 `
 
 export const Label = styled.label`
@@ -35,6 +37,9 @@ export const Input = styled.input`
     &::-webkit-input-placeholder {
         color: rgb(207, 201, 201);
     }
+    border:0.5px solid rgb(5, 0, 78) ;
+    border-radius: 10px;
+
 `
 
 export const Button = styled.button`
@@ -42,9 +47,11 @@ export const Button = styled.button`
     height: 30px;
     border: none;
     margin-top: 20px;
-    background-color: ${(props) => props.color} ;
+    background-color: ${(props) => props.bgColor} ;
     margin-bottom: ${(props) => (props.botton ? props.botton : 0)};
-
+    color: ${(props) => props.color} ;
+    border-radius: 5px;
+    cursor: pointer;
 `
 
 export const ListBox = styled.div`
@@ -53,7 +60,7 @@ export const ListBox = styled.div`
     align-items: center;
     flex-wrap: wrap;
     width: 90vw;
-    color: purple;
+    
 `
 
 export const BookContainer = styled.div`
@@ -63,7 +70,8 @@ export const BookContainer = styled.div`
     flex-direction: column;
     margin: 20px;
     width:200px;
-    border: 1px solid blue;
+    background-color: rgb(116, 208, 236);
+    border-radius: 20px;
 `
 
 export const BookText = styled.p`

@@ -1,13 +1,15 @@
 import React from 'react';
+// import * as S from './components/styles';
+
+import { GlobalStyle } from './styles/global'
 
 import Estante from './components/index';
-// import { GlobalStyle } from './styles/global';
 
 function App() {
   return (
     <>
-      {/* <GlobalStyle/> */}
       <Estante />
+      <GlobalStyle/>
     </>
   );
 }

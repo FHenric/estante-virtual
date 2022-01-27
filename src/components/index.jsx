@@ -19,8 +19,8 @@ function Estante() {
             author,
             year
         }
-            //proximo passo é implementar uma forma de não cadastrar o mesmo livro mais de uma vez
-        if(book.name === '' ){
+        
+        if(book.name === ''){
             window.alert('Não podemos registrar um livro sem nome!')
         } else if( book.author === ''){
             window.alert('Não podemos registrar um livro sem Autor!')
@@ -32,7 +32,7 @@ function Estante() {
     }
 
     const eraser = (e) => {
-        const newList = books.filter((el) => el.name !== name);
+        const newList = books.filter((el) => el.name !== e);
         setBooks(newList)
     }
 
@@ -50,7 +50,7 @@ function Estante() {
             <S.Input type='text' value={author} name='autor' placeholder='Peter J. Carroll' onChange={e => setAuthor(e.target.value)}/>
             <S.Label>Ano de lançamento</S.Label>
             <S.Input type='number' value={year} name='ano' placeholder='1978' onChange={e => setYear(e.target.value)}/>
-            <S.Button color={'blue'} type='Adicionar' value='submit'/>
+            <S.Button bgColor={'rgb(5, 0, 78)'} color='#fff' type='submit' value='submit'>Adicionar</S.Button>
         </S.Form>
 
         <S.ListBox>
@@ -60,7 +60,7 @@ function Estante() {
                     <S.BookText>{el.name}</S.BookText>
                     <S.BookText>{el.author}</S.BookText>
                     <S.BookText>{el.year}</S.BookText>
-                    <S.Button color={'red'} botton='15px' onClick={() => eraser(name)}>Excluir</S.Button>
+                    <S.Button bgColor={'rgb(247, 97, 71)'} botton='15px' onClick={() => eraser(el.name)}>Excluir</S.Button>
                 </S.BookContainer>
             ))}
             

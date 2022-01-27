@@ -1,9 +1,12 @@
-import createGlobalStyle from "styled-components";
+import {createGlobalStyle} from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    *{
-        display:flex;
-        justify-content: center;
-        align-items:center;
+    * {
+        box-sizing: border-box;
     }
-`
+    
+    body {
+        background-color: rgb(5, 0, 78);
+        transition: 1s;
+    }
+`;
